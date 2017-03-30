@@ -1,0 +1,181 @@
+<div class="navbar navbar-fixed-top bs-docs-nav" role="banner">
+
+  <div class="container">
+    <!-- Menu button for smallar screens -->
+    <div class="navbar-header">
+      <button class="navbar-toggle btn-navbar" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+        <span>Menu</span>
+      </button>
+      <!-- Site name for smallar screens -->
+      <a href="index.html" class="navbar-brand hidden-lg">NUAppeals</a>
+    </div>
+
+
+
+    <!-- Navigation starts -->
+    <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+
+      <img src="assets/img/logo.png" height="50px" style="padding: 5px" class="hidden-sm hidden-xs">
+
+      <!-- Links -->
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown pull-right">
+          <a href="javascript:void(0)" (click)="logout()">
+            <i class="fa fa-power-off"></i> Logout
+          </a>
+        </li>
+        <li class="dropdown pull-right">
+          <a href="javascript:void(0)">
+            <i class="fa fa-user"></i> Dzhamshed Khaitov
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+  </div>
+</div>
+
+
+<!-- Header starts -->
+<header>
+  <div class="container">
+    <div class="row">
+
+      <!-- Logo section -->
+      <div class="col-md-4">
+        <!-- Logo. -->
+        <div class="logo">
+          <h1><a href="#">NU<span class="bold">Appeals</span></a></h1>
+        </div>
+        <!-- Logo ends -->
+      </div>
+
+      <!-- Button section -->
+      <div class="col-md-4">
+
+        <!-- Buttons -->
+        <ul class="nav nav-pills">
+
+          <!-- Comment button with number of latest comments count -->
+          <li class="dropdown dropdown-big pull-right">
+            <a href="javascript:void(0)">
+              <i class="fa fa-comments"></i> New <span   class="label label-info">6</span>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+      <!-- Data section -->
+
+      <div class="col-md-4">
+        <div class="header-data">
+
+          <!-- revenue data -->
+          <div class="hdata">
+            <div class="mcol-left">
+              <!-- Icon with green background -->
+              <i class="fa fa-money bgreen"></i>
+            </div>
+            <div class="mcol-right">
+              <!-- Number of visitors -->
+              <p><a href="#">5000</a><em>accepts</em></p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <!-- Traffic data -->
+          <div class="hdata">
+            <div class="mcol-left">
+              <!-- Icon with red background -->
+              <i class="fa fa-signal bred"></i>
+            </div>
+            <div class="mcol-right">
+              <!-- Number of visitors -->
+              <p><a href="#">7000</a> <em>rejects</em></p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+          <!-- Members data -->
+          <div class="hdata">
+            <div class="mcol-left">
+              <!-- Icon with blue background -->
+              <i class="fa fa-user bblue"></i>
+            </div>
+            <div class="mcol-right">
+              <!-- Number of visitors -->
+              <p><a href="#">3000</a> <em>total</em></p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</header>
+
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-dropdown"><a href="#">Navigation</a></div>
+
+    <!--- Sidebar navigation -->
+    <!-- If the main navigation has sub navigation, then add the class "has_sub" to "li" of main navigation. -->
+    <ul id="nav">
+      <!-- Main menu with font awesome icon -->
+      <li class="open has_sub"><a href=""><i class="fa fa-home"></i> Appeals <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+        <ul>
+          <li><a href="#">My Appeals</a></li>
+          <li><a href="#">All Appeals</a></li>
+          <li><a href="#">Search Appeal</a></li>
+        </ul>
+      </li>
+      <li class="has_sub">
+        <a href="#"><i class="fa fa-list-alt"></i> Users  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+        <ul>
+          <li><a href="widgets1.html">Moderators</a></li>
+          <li><a href="widgets2.html">Students</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-file-o"></i> Cars  <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- Sidebar ends -->
+
+  <!-- Main bar -->
+  <div class="mainbar">
+    <div class="container">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+
+  <!-- Mainbar ends -->
+  <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+<footer>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <!-- Copyright info -->
+        <p class="copy">Copyright &copy; 2012 | <a href="/">NU Appeals</a> </p>
+      </div>
+    </div>
+  </div>
+</footer>
