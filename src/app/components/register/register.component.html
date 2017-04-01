@@ -16,21 +16,25 @@
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="firstname">First Name</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" value="user.firstname">
+                    <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" value="user.firstname" required>
+                    <p style="color: red;" *ngIf="errors[0]">First Name is required</p>
                   </div>
                 </div>
                 <!-- LastName -->
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="lastname">Last Name</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" value="user.lastname">
+                    <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" value="user.lastname" required>
+                    <p style="color: red;" *ngIf="errors[1]">Last Name is required</p>
                   </div>
                 </div>
                 <!-- Email -->
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="email">Email</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email" value="user.email">
+                    <input type="email" class="form-control" id="email" name="email" [(ngModel)]="user.email" value="user.email" required>
+                    <p style="color: red;" *ngIf="errors[2]">Email is required</p>
+                    <p style="color: red;" *ngIf="errors[6]">Use university email (@nu.edu.kz)</p>
                   </div>
                 </div>
                 <!-- Phone -->
@@ -38,34 +42,40 @@
                   <label class="control-label col-lg-3" for="phone">Phone</label>
                   <div class="col-lg-9">
                     <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone" value="user.phone">
+                    <p style="color: red;" *ngIf="errors[7]">Phone number is incorrect</p>
                   </div>
                 </div>
                 <!-- NUID -->
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="nuid">NU ID</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="nuid" name="nuid" [(ngModel)]="user.nuid" value="user.nuid">
+                    <input type="text" class="form-control" id="nuid" name="nuid" [(ngModel)]="user.nuid" value="user.nuid" required>
+                    <p style="color: red;" *ngIf="errors[3]">NU ID is required</p>
+                    <p style="color: red;" *ngIf="errors[8]">Incorrect NU ID</p>
                   </div>
                 </div>
                 <!-- Password -->
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="password1">Password</label>
                   <div class="col-lg-9">
-                    <input type="password" class="form-control" id="password1" name="password1" [(ngModel)]="user.password" value="user.password">
+                    <input type="password" class="form-control" id="password1" name="password1" [(ngModel)]="user.password" value="user.password" required>
+                    <p style="color: red;" *ngIf="errors[4]">Password is required</p>
                   </div>
                 </div>
                 <!-- Repeat Password -->
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="password2">Password</label>
                   <div class="col-lg-9">
-                    <input type="password" class="form-control" id="password2" name="password2" [(ngModel)]="password" value="password">
+                    <input type="password" class="form-control" id="password2" name="password2" [(ngModel)]="password" value="password" required>
+                    <p style="color: red;" *ngIf="errors[5]">Password Confirmation is required</p>
+                    <p style="color: red;" *ngIf="errors[9]">Passwords are not identical</p>
                   </div>
                 </div>
                 <!-- Accept box and button s-->
                 <div class="form-group">
                   <div class="col-lg-9 col-lg-offset-3">
                     <br />
-                    <button type="button" class="btn btn-sm btn-info" (click)="register()">Register</button>
+                    <button type="submit" class="btn btn-sm btn-info" (click)="register()">Register</button>
                     <button type="reset" class="btn btn-sm btn-default">Reset</button>
                   </div>
                 </div>

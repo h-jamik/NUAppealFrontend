@@ -5,7 +5,7 @@ export class User {
   email: string;
   password: string;
   phone: string;
-  nuid: number;
+  nuid: string;
   role: string;
   appeals_client: Appeal[];
   appeals_moderator: Appeal[];
