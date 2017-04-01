@@ -63,8 +63,6 @@
             </a>
           </li>
 
-          <li><button (click)="test()">HELLO</button></li>
-
         </ul>
 
       </div>
@@ -136,15 +134,15 @@
       <!-- Main menu with font awesome icon -->
       <li class="has_sub" [class.open]="page=='appeals'"><a href="javascript:void(0)"><i class="fa fa-home"></i> Appeals <span class="pull-right"><i class="fa fa-chevron-right"></i></span></a>
         <ul>
-          <li><a href="javascript:void(0)" routerLink="/main" (click)="page='appeals'">My Appeals</a></li>
+          <li *ngIf="user?.role=='client'"><a href="javascript:void(0)" routerLink="/main" (click)="page='appeals'">My Appeals</a></li>
           <li><a href="javascript:void(0)" routerLink="/main" (click)="page='appeals'">All Appeals</a></li>
-          <li><a href="javascript:void(0)" routerLink="/main/new-appeal" (click)="page='appeals'">Create Appeal</a></li>
+          <li *ngIf="user?.role=='client'"><a href="javascript:void(0)" routerLink="/main/new-appeal" (click)="page='appeals'">Create Appeal</a></li>
         </ul>
       </li>
-      <li [class.open]="page=='users'">
+      <li [class.open]="page=='users'" *ngIf="user?.role == 'admin'">
         <a href="javascript:void(0)" routerLink="/main/users" (click)="page='users'"><i class="fa fa-list-alt"></i> Users  <span class="pull-right"></span></a>
       </li>
-      <li [class.open]="page=='cars'">
+      <li [class.open]="page=='cars'" *ngIf="user?.role != 'client'">
         <a href="javascript:void(0)" routerLink="/main/cars" (click)="page='cars'"><i class="fa fa-file-o"></i> Cars  <span class="pull-right"></span></a>
       </li>
     </ul>
@@ -174,7 +172,7 @@
     <div class="row">
       <div class="col-md-12">
         <!-- Copyright info -->
-        <p class="copy">Copyright &copy; 2012 | <a href="/">NU Appeals</a> </p>
+        <p class="copy">Copyright &copy; 2017 | <a href="/">NU Appeals</a> </p>
       </div>
     </div>
   </div>

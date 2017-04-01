@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {SocketService} from "../../_services/socket.service";
+import {User} from "../../model";
 
 @Component({
   selector: 'main',
@@ -11,6 +12,8 @@ import {SocketService} from "../../_services/socket.service";
   ]
 })
 export class MainComponent implements OnInit {
+
+  user: User;
 
   constructor(
     private router: Router,
@@ -25,10 +28,9 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.socketService.connect();
-  }
 
-  test() {
-    console.log("test -> ", this.socketService.appeals);
+    let tmp = localStorage.getItem('user');
+    if (tmp) this.user = <User> JSON.parse(tmp);
   }
 
 }

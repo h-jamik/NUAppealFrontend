@@ -65,6 +65,10 @@ export class NewAppealComponent implements OnInit {
       this.appeal.car_number = this.carNumber;
     }
 
+    if (this.whoiscoming !== 'Others') {
+      this.appeal.note = this.whoiscoming;
+    }
+
 
     this.socket.post('/appeal/create', this.appeal).subscribe(resp => {
     });
