@@ -359,10 +359,13 @@ $(document).ready(function() {
 	   "sPaginationType": "full_numbers"
 	});
 });
-$('#timeinput').on('change', function(){
-  console.log('changed');
-});
-function onchangetime() {
-  console.log('changed');
+document.addEventListener('DOMContentLoaded', function () {
+  if (!Notification) {
+    alert('Desktop notifications not available in your browser. Try Chromium.');
+    return;
+  }
 
-}
+  if (Notification.permission !== "granted")
+    Notification.requestPermission();
+});
+

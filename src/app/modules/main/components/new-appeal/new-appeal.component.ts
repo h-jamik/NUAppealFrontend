@@ -1,6 +1,6 @@
-import {ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, Component, NgZone, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Appeal} from '../../../../model';
-import {ApplicationRef_} from "@angular/core/src/application_ref";
+
 
 @Component({
   selector: 'app-new-appeal',
@@ -24,7 +24,6 @@ export class NewAppealComponent implements OnInit {
   }
 
   submit() {
-    console.log(this.arrivalTime);
     for (let i = 0; i < 8; i++) {
       this.errors[i] = false;
     }
@@ -43,6 +42,20 @@ export class NewAppealComponent implements OnInit {
       return;
     }
     this.appeal.arrival_time = new Date(this.arrivalDate + ' ' + this.arrivalTime);
+
+    if (this.whoiscoming === 'Ambulance') {
+      this.appeal.car_number = 'AMB-103-00';
+    } else if (this.whoiscoming === 'Police') {
+      this.appeal.car_number = 'POL-102-00';
+    } else if (this.whoiscoming === 'Firefighters') {
+      this.appeal.car_number = 'FIR-101-00';
+    } else {
+      this.appeal.car_number = this.carNumber;
+    }
   }
+
+
+
+
 
 }

@@ -47,6 +47,7 @@ export class Appeal {
 
   client: User;
   car: Car;
+  car_number: string;
   moderator: User;
   status: string;
   car_phone_number: string;
@@ -78,6 +79,7 @@ export class Appeal {
       this.updatedAt = item.updatedAt;
       if (item.updatedAt) this.updatedAt = new Date(item.updatedAt);
       this.id = item.id;
+      this.car_number = item.car_number;
     }
   }
 }
