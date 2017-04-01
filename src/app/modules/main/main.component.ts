@@ -14,7 +14,7 @@ export class MainComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private socketService: SocketService
+    public socketService: SocketService
   ) {}
 
   logout() {
@@ -25,6 +25,10 @@ export class MainComponent implements OnInit {
 
   ngOnInit() {
     this.socketService.connect();
+  }
+
+  test() {
+    console.log("test -> ", this.socketService.appeals);
   }
 
 }

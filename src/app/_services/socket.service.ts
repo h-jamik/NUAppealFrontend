@@ -12,7 +12,9 @@ export class SocketService {
 
   public timer: any;
 
-  constructor(private service: SailsService) { }
+  constructor(private service: SailsService) {
+    this.appeals = [];
+  }
 
   connect() {
 
@@ -103,6 +105,8 @@ export class SocketService {
         if (items.data.appeals_client)
           for (let i of items.data.appeals_client)
             this.appeals.push(new Appeal(i));
+
+        console.log("------------> appeals ", this.appeals);
 
       });
     }

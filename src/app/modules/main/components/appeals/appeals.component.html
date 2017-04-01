@@ -30,9 +30,9 @@
         </div>
         <div class="col-md-3 col-lg-3">
           <div class="form-group">
-            <label class="col-lg-4 control-label" name="status" [(ngModel)]="filterStatus">Status</label>
+            <label class="col-lg-4 control-label" name="status">Status</label>
             <div class="col-lg-8">
-              <select class="form-control" name="role">
+              <select class="form-control" name="role" [(ngModel)]="filterStatus">
                 <option>New</option>
                 <option>Approved</option>
                 <option>Rejected</option>
@@ -84,7 +84,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let appeal of appeals">
+        <tr *ngFor="let appeal of mainComponent.socketService.appeals">
           <td>{{appeal.client.nuid}}</td>
           <td>{{appeal.client.firstname + ' ' + appeal.client.lastname}}</td>
           <td>{{appeal.note}}</td>
