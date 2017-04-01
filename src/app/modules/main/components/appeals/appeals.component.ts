@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Appeal} from "../../../../model";
+import {Appeal, Car} from "../../../../model";
 
 @Component({
   selector: 'app-appeals',
@@ -8,18 +8,29 @@ import {Appeal} from "../../../../model";
 })
 export class AppealsComponent implements OnInit {
   appeals: Appeal[];
+  filterEmail: string;
+  filterStatus: string;
+  filterCarNumber: string;
   constructor() { }
 
   ngOnInit() {
 
   }
 
-  accept() {
+  accept(appeal: Appeal) {
 
   }
 
-  reject() {
+  reject(appeal: Appeal) {
 
+  }
+
+  isBanned(car: Car){
+    if (car.status === 'Banned') {
+      return '<br> Warning! This car is in Black List.';
+    } else {
+      return '';
+    }
   }
 
 }

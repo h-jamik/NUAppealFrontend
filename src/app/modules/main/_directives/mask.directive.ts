@@ -55,6 +55,38 @@ export class CarMaskDirective {
     this.curVal = newVal;
     this.el.nativeElement.value = newVal;
   }
+}
 
+@Directive({
+  selector: '[user-id-mask]',
+  host: {
+    '(ngModelChange)' : 'change()',
+    '(keyup)' : 'change()',
+    '(focusout)' : 'left()'
+  }
+})
+export class UserIdMaskDirective {
 
+  constructor(private el: ElementRef) {}
+
+  left() {
+    this.change();
+  }
+
+  change() {
+    let val: string = this.el.nativeElement.value;
+    let newVal = '';
+    for (let i = 0; i < val.length; i++){
+      let ch = val.charAt(i);
+      if (ch <= '9' && ch >= '0') {
+        newVal += ch;
+      } else {
+        break;
+      }
+    }
+    if (newVal.length > 9) {
+      newVal = newVal.substr(0, 9);
+    }
+    this.el.nativeElement.value = newVal;
+  }
 }

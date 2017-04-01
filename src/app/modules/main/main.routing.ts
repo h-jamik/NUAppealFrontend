@@ -5,6 +5,8 @@ import {MainComponent} from "./main.component";
 import {AuthGuard} from "../../_guards/auth.guard";
 import {AppealsComponent} from "./components/appeals/appeals.component";
 import {NewAppealComponent} from "./components/new-appeal/new-appeal.component";
+import {UsersComponent} from "./components/users/users.component";
+import {CarsComponent} from "./components/cars/cars.component";
 
 
 const mainRoutes: Routes = [
@@ -21,6 +23,14 @@ const mainRoutes: Routes = [
       {
         path: 'new-appeal',
         component: NewAppealComponent
+      },
+      {
+        path: 'users',
+        component: UsersComponent
+      },
+      {
+        path: 'cars',
+        component: CarsComponent
       }
     ]
   },

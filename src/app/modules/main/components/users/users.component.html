@@ -12,31 +12,29 @@
   <div class="widget-content">
     <div class="padd container">
       <form class="form-horizontal" role="form">
+        <div class="col-md-3 col-lg-3">
+          <div class="form-group">
+            <label class="col-lg-4 control-label">User ID</label>
+            <div class="col-lg-8">
+              <input type="text" class="form-control" name="userId" [(ngModel)]="filterUserId" user-id-mask>
+            </div>
+          </div>
+        </div>
         <div class="col-md-4 col-lg-4">
           <div class="form-group">
-            <label class="col-lg-4 control-label">User Email</label>
+            <label class="col-lg-4 control-label">Name</label>
             <div class="col-lg-8">
-              <input type="text" class="form-control" name="email" [(ngModel)]="filterEmail" user-id-mask>
+              <input type="text" class="form-control" name="name" [(ngModel)]="filterName">
             </div>
           </div>
         </div>
         <div class="col-md-3 col-lg-3">
           <div class="form-group">
-            <label class="col-lg-5 control-label">Car Number</label>
-            <div class="col-lg-7">
-              <input type="text" class="form-control" name="carnumber" [(ngModel)]="filterCarNumber" placeholder="XXX-999-99" car-mask>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-3 col-lg-3">
-          <div class="form-group">
-            <label class="col-lg-4 control-label" name="status" [(ngModel)]="filterStatus">Status</label>
+            <label class="col-lg-4 control-label" name="role" [(ngModel)]="filterRole">Role</label>
             <div class="col-lg-8">
               <select class="form-control" name="role">
-                <option>New</option>
-                <option>Approved</option>
-                <option>Rejected</option>
-                <option>Cancelled</option>
+                <option>User</option>
+                <option>Moderator</option>
               </select>
             </div>
           </div>
@@ -48,13 +46,15 @@
       </form>
     </div>
   </div>
-  <div class="widget-foot">
+    <div class="widget-foot">
 
-    <div class="clearfix"></div>
+      <div class="clearfix"></div>
 
-  </div>
+    </div>
 
 </div>
+
+
 
 <div class="widget">
 
@@ -73,30 +73,27 @@
       <table class="table table-striped table-bordered table-hover">
         <thead>
         <tr>
-          <th>StudentID</th>
+          <th>UniversityID</th>
           <th>Name</th>
-          <th>Who is coming</th>
-          <th>Arrival Date</th>
-          <th>Car Number</th>
-          <th>Created At</th>
-          <th>Status</th>
+          <th>Email</th>
+          <th>Phone Number</th>
+          <th>Role</th>
           <th>Control</th>
         </tr>
         </thead>
         <tbody>
-        <tr *ngFor="let appeal of appeals">
-          <td>{{appeal.client.nuid}}</td>
-          <td>{{appeal.client.firstname + ' ' + appeal.client.lastname}}</td>
-          <td>{{appeal.note}}</td>
-          <td>{{appeal.arrival_time}}</td>
-          <td>{{appeal.car.number + isBanned(appeal.car)}}</td>
-          <td>{{appeal.createdAt}}</td>
-          <td>{{appeal.status}}</td>
+        <tr *ngFor="let user of users">
+          <td>{{user.nuid}}</td>
+          <td>{{user.firstname + ' ' + user.lastname}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.role}}</td>
           <td>
-            <button *ngIf="appeal.status === 'New'" (click)="accept(appeal)" class="btn btn-xs btn-success"><i class="fa fa-check"></i> </button>
-            <button *ngIf="appeal.status === 'New'" (click)="reject(appeal)" class="btn btn-xs btn-danger"><i class="fa fa-times"></i> </button>
+            <button *ngIf="user.role === 'User'" (click)="makeModerator(user)" class="btn btn-xs btn-success"><i class="fa fa-user"></i> Make Moderator</button>
+            <button *ngIf="user.role === 'Moderator'" (click)="makeUser(user)" class="btn btn-xs btn-danger"><i class="fa fa-user"></i> Make User</button>
           </td>
         </tr>
+
         </tbody>
       </table>
     </div>

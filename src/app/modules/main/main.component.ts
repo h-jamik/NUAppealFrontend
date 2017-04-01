@@ -7,7 +7,7 @@ import {Router} from "@angular/router";
   styleUrls: ['./main.component.css']
 })
 export class MainComponent {
-
+  page: string;
   constructor(private router: Router) {}
 
   logout() {

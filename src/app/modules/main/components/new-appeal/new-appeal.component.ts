@@ -13,6 +13,7 @@ export class NewAppealComponent implements OnInit {
   carNumber: string;
   arrivalDate: string;
   arrivalTime: string;
+  appealType: string;
   errors: boolean[];
   constructor() {
   }

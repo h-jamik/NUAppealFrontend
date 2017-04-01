@@ -15,7 +15,16 @@
       <br />
       <!-- Form starts.  -->
       <form class="form-horizontal" role="form">
-
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Appeal Type</label>
+          <div class="col-lg-2">
+            <select class="form-control" name="appealtype" [(ngModel)]="whoiscoming">
+              <option>Ambulance</option>
+              <option>Police</option>
+            </select>
+            <p style="color:red" *ngIf="errors[0]">You must choose one</p>
+          </div>
+        </div>
 
         <div class="form-group">
           <label class="col-lg-2 control-label">Who is coming</label>
@@ -41,7 +50,7 @@
         <div *ngIf="whoiscoming=='Others'" class="form-group">
           <label class="col-lg-2 control-label">Car Number</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control" placeholder="XXX-111-11" name="carnumber" [(ngModel)]="carNumber" car-mask>
+            <input type="text" class="form-control" placeholder="XXX-999-99" name="carnumber" [(ngModel)]="carNumber" car-mask>
             <p style="color:red" *ngIf="errors[2]">Car Number is required</p>
             <p style="color:red" *ngIf="errors[3]">Car Number format is not correct</p>
           </div>
