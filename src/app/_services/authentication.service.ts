@@ -15,6 +15,11 @@ export class AuthenticationService {
     return this.http.post('/api/authentication/signup', body).map(this.extractor).catch(this.handleError);
   }
 
+  login(email: string, password: string) {
+    let body = JSON.stringify({email: email, password: password});
+    return this.http.post('/api/authentication/login', body).map(this.extractor).catch(this.handleError);
+  }
+
 
 
 

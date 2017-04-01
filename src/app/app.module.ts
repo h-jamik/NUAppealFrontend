@@ -10,6 +10,8 @@ import { AuthGuard } from "./_guards/auth.guard";
 import {routing} from "./app.routing";
 import { RegisterComponent } from './components/register/register.component';
 
+import {SailsModule} from "angular2-sails";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +22,8 @@ import { RegisterComponent } from './components/register/register.component';
     BrowserModule,
     routing,
     MainModule,
-    FormsModule
+    FormsModule,
+    SailsModule.forRoot()
   ],
   providers: [
     AuthGuard
