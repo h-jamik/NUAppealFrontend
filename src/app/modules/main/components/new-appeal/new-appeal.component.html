@@ -18,15 +18,31 @@
         <div class="form-group">
           <label class="col-lg-2 control-label">Appeal Type</label>
           <div class="col-lg-2">
-            <select class="form-control" name="appealtype" [(ngModel)]="whoiscoming">
-              <option>Ambulance</option>
-              <option>Police</option>
+            <select class="form-control" name="appealtype" [(ngModel)]="appealType">
+              <option>Guest</option>
+              <option>Vehicle</option>
             </select>
-            <p style="color:red" *ngIf="errors[0]">You must choose one</p>
+            <p style="color:red" *ngIf="errors[8]">You must choose one</p>
           </div>
         </div>
 
-        <div class="form-group">
+        <div *ngIf="appealType=='Guest'" class="form-group">
+          <label class="col-lg-2 control-label">Full Name</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" name="guestname" [(ngModel)]="guestFullName">
+            <p style="color:red" *ngIf="errors[9]">Full Name is required</p>
+          </div>
+        </div>
+
+        <div *ngIf="appealType=='Guest'" class="form-group">
+          <label class="col-lg-2 control-label">Guest Identity Number (Passport or National Identity Card)</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" name="idnumber" [(ngModel)]="guestIdNumber">
+            <p style="color:red" *ngIf="errors[10]">Identity Number is required</p>
+          </div>
+        </div>
+
+        <div *ngIf="appealType=='Vehicle'" class="form-group">
           <label class="col-lg-2 control-label">Who is coming</label>
           <div class="col-lg-2">
             <select class="form-control" name="whoiscoming" [(ngModel)]="whoiscoming">
@@ -39,7 +55,7 @@
           </div>
         </div>
 
-        <div *ngIf="whoiscoming=='Others'" class="form-group">
+        <div *ngIf="appealType=='Vehicle' && whoiscoming=='Others'" class="form-group">
           <label class="col-lg-2 control-label">Specify</label>
           <div class="col-lg-5">
             <textarea class="form-control" rows="5" placeholder="Textarea" name="note" [(ngModel)]="appeal.note"></textarea>
@@ -47,7 +63,7 @@
           </div>
         </div>
 
-        <div *ngIf="whoiscoming=='Others'" class="form-group">
+        <div *ngIf="appealType=='Vehicle' && whoiscoming=='Others'" class="form-group">
           <label class="col-lg-2 control-label">Car Number</label>
           <div class="col-lg-5">
             <input type="text" class="form-control" placeholder="XXX-999-99" name="carnumber" [(ngModel)]="carNumber" car-mask>

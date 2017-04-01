@@ -14,6 +14,8 @@ export class NewAppealComponent implements OnInit {
   arrivalDate: string;
   arrivalTime: string;
   appealType: string;
+  guestFullName: string;
+  guestIdNumber: string;
   errors: boolean[];
   constructor() {
   }
@@ -25,18 +27,22 @@ export class NewAppealComponent implements OnInit {
   }
 
   submit() {
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 11; i++) {
       this.errors[i] = false;
     }
     let ok = true;
-    if (!this.whoiscoming) { this.errors[0] = true; }
-    if (this.whoiscoming === 'Others' && !this.appeal.note) { this.errors[1] = true; }
-    if (this.whoiscoming === 'Others' && !this.carNumber) { this.errors[2] = true; }
+    if (!this.appealType) { this.errors[8] = true; }
+    if (this.appealType === 'Guest' && !this.guestFullName) { this.errors[9] = true; }
+    if (this.appealType === 'Guest' && !this.guestIdNumber) { this.errors[10] = true; }
+    if (this.appealType === 'Vehicle' && !this.whoiscoming) { this.errors[0] = true; }
+    if (this.appealType === 'Vehicle' && this.whoiscoming === 'Others' && !this.appeal.note) { this.errors[1] = true; }
+    if (this.appealType === 'Vehicle' && this.whoiscoming === 'Others' && !this.carNumber) { this.errors[2] = true; }
+    if (this.appealType === 'Vehicle' && !this.errors[2] && this.carNumber.length !== 10) { this.errors[3] = true;}
     if (!this.arrivalDate) { this.errors[4] = true; }
     if (!this.errors[4] && Date.parse(this.arrivalDate) === NaN) { this.errors[5] = true; }
     if (!this.arrivalTime) { this.errors[6] = true; }
     if (!this.errors[6] && Date.parse('2017-04-01 ' + this.arrivalTime) === NaN) {this.errors[7] = true; }
-    for (let i = 0; i < 8; i++) {
+    for (let i = 0; i < 11; i++) {
       ok = ok && !this.errors[i];
     }
     if (!ok) {
