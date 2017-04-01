@@ -41,7 +41,7 @@
         <div *ngIf="whoiscoming=='Others'" class="form-group">
           <label class="col-lg-2 control-label">Car Number</label>
           <div class="col-lg-5">
-            <input type="text" class="form-control" placeholder="XXX-111-11" name="carnumber" [(ngModel)]="carNumber">
+            <input type="text" class="form-control" placeholder="XXX-111-11" name="carnumber" [(ngModel)]="carNumber" car-mask>
             <p style="color:red" *ngIf="errors[2]">Car Number is required</p>
             <p style="color:red" *ngIf="errors[3]">Car Number format is not correct</p>
           </div>

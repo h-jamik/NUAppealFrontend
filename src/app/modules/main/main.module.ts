@@ -7,6 +7,7 @@ import { MainRoutes } from "./main.routing";
 import { AppealsComponent } from './components/appeals/appeals.component';
 import {NotyComponent} from "./_assets/noty/noty.component";
 import { NewAppealComponent } from './components/new-appeal/new-appeal.component';
+import {CarMaskDirective} from "./_directives/mask.directive";
 
 @NgModule({
   imports: [
@@ -19,7 +20,8 @@ import { NewAppealComponent } from './components/new-appeal/new-appeal.component
     MainComponent,
     AppealsComponent,
     NotyComponent,
-    NewAppealComponent
+    NewAppealComponent,
+    CarMaskDirective
   ]
 })
 export class MainModule { }
