@@ -22,8 +22,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private service: AuthenticationService,
-    private socket: SailsService
+    private service: AuthenticationService
   ) {}
 
   ngOnInit() {
@@ -39,8 +38,6 @@ export class LoginComponent implements OnInit {
           localStorage.setItem("token", res.token);
           localStorage.setItem("user", JSON.stringify(res.user));
 
-          this.connectSocket();
-
           this.router.navigate(['/main']);
 
         } else {
@@ -50,29 +47,6 @@ export class LoginComponent implements OnInit {
         this.error = true;
       });
     }
-  }
-
-  connectSocket() {
-    let options = {
-      url: 'http://localhost:1337',
-      headers: {Authorization: "Bearer "+localStorage.getItem("token")}
-    };
-
-    this.socket.connect(options).subscribe(res => {
-      console.log("connected! ", res);
-
-      this.socket.get('/authentication/subscribeUser').subscribe(resp => {
-        console.log("resp ", resp);
-      });
-
-    }, err => {
-      console.log("error! ", err);
-    });
-
-
-    // this.socket.on("hello").subscribe(res => {
-    //   console.log("hello! ", res);
-    // });
   }
 
 }

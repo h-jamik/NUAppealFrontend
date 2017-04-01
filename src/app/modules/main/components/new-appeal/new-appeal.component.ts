@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Appeal} from '../../../../model';
+import {SailsService} from "angular2-sails";
 
 
 @Component({
@@ -8,6 +9,7 @@ import {Appeal} from '../../../../model';
   styleUrls: ['./new-appeal.component.css']
 })
 export class NewAppealComponent implements OnInit {
+
   whoiscoming: string;
   appeal: Appeal;
   carNumber: string;
@@ -17,13 +19,16 @@ export class NewAppealComponent implements OnInit {
   guestFullName: string;
   guestIdNumber: string;
   errors: boolean[];
-  constructor() {
+
+  constructor(private socket: SailsService) {
   }
 
   ngOnInit() {
     this.appeal = new Appeal();
     this.whoiscoming = '';
     this.errors = [];
+
+
   }
 
   submit() {
@@ -59,6 +64,10 @@ export class NewAppealComponent implements OnInit {
     } else {
       this.appeal.car_number = this.carNumber;
     }
+
+
+    this.socket.post('/appeal/create', this.appeal).subscribe(resp => {
+    });
   }
 
 
