@@ -6,6 +6,7 @@ import { FormsModule } from "@angular/forms";
 import { MainRoutes } from "./main.routing";
 import { AppealsComponent } from './components/appeals/appeals.component';
 import {NotyComponent} from "./_assets/noty/noty.component";
+import { NewAppealComponent } from './components/new-appeal/new-appeal.component';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import {NotyComponent} from "./_assets/noty/noty.component";
   declarations: [
     MainComponent,
     AppealsComponent,
-    NotyComponent
+    NotyComponent,
+    NewAppealComponent
   ]
 })
 export class MainModule { }

@@ -1,0 +1,98 @@
+<div class="widget wgreen">
+
+  <div class="widget-head">
+    <div class="pull-left">Create New Appeal</div>
+    <div class="widget-icons pull-right">
+      <a href="#" class="wminimize"><i class="fa fa-chevron-up"></i></a>
+      <a href="#" class="wclose"><i class="fa fa-times"></i></a>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+
+  <div class="widget-content">
+    <div class="padd">
+
+      <br />
+      <!-- Form starts.  -->
+      <form class="form-horizontal" role="form">
+
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Who is coming</label>
+          <div class="col-lg-2">
+            <select class="form-control" name="whoiscoming" [(ngModel)]="whoiscoming">
+              <option>Ambulance</option>
+              <option>Police</option>
+              <option>Firefighters</option>
+              <option>Others</option>
+            </select>
+            <p style="color:red" *ngIf="errors[0]">You must choose one</p>
+          </div>
+        </div>
+
+        <div *ngIf="whoiscoming=='Others'" class="form-group">
+          <label class="col-lg-2 control-label">Specify</label>
+          <div class="col-lg-5">
+            <textarea class="form-control" rows="5" placeholder="Textarea" name="note" [(ngModel)]="appeal.note"></textarea>
+            <p style="color:red" *ngIf="errors[1]">Specify who is coming</p>
+          </div>
+        </div>
+
+        <div *ngIf="whoiscoming=='Others'" class="form-group">
+          <label class="col-lg-2 control-label">Car Number</label>
+          <div class="col-lg-5">
+            <input type="text" class="form-control" placeholder="XXX-111-11" name="carnumber" [(ngModel)]="carNumber">
+            <p style="color:red" *ngIf="errors[2]">Car Number is required</p>
+            <p style="color:red" *ngIf="errors[3]">Car Number format is not correct</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Date</label>
+          <div class="col-lg-5">
+            <div id="datetimepicker1" class="input-append input-group dtpicker">
+              <input data-format="yyyy-MM-dd" type="text" class="form-control" name="date" [(ngModel)]="arrivalDate">
+              <span class="input-group-addon add-on">
+							  <i data-time-icon="fa fa-times" data-date-icon="fa fa-calendar"></i>
+						  </span>
+            </div>
+            <p style="color:red" *ngIf="errors[4]">Date is required</p>
+            <p style="color:red" *ngIf="errors[5]">Date format is not correct</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-lg-2 control-label">Approximate Time</label>
+          <div class="col-lg-5">
+            <div id="datetimepicker2" class="input-append input-group dtpicker">
+              <input id="timeinput" onchange="onchangetime()" data-format="hh:mm:ss" class="form-control" type="text" name="time" [(ngModel)]="arrivalTime">
+              <script>
+                  function onchange1() {
+                    console.log('changed');
+                    const event = document.createEvent();
+                    event.initEvent('change', true, true);
+                    $('#time')[0].dispatchEvent(event);
+                  }
+              </script>
+              <span class="input-group-addon add-on">
+							  <i data-time-icon="fa fa-clock-o" data-date-icon="fa fa-calendar"></i>
+						  </span>
+            </div>
+            <p style="color:red" *ngIf="errors[6]">Time is required</p>
+            <p style="color:red" *ngIf="errors[7]">Time format is not correct</p>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-lg-offset-2 col-lg-6">
+            <button type="submit" class="btn btn-sm btn-primary" (click)="submit()">Submit</button>
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <div class="widget-foot">
+    <!-- Footer goes here -->
+  </div>
+</div>

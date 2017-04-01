@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import {MainComponent} from "./main.component";
 import {AuthGuard} from "../../_guards/auth.guard";
 import {AppealsComponent} from "./components/appeals/appeals.component";
+import {NewAppealComponent} from "./components/new-appeal/new-appeal.component";
 
 
 const mainRoutes: Routes = [
@@ -17,6 +18,10 @@ const mainRoutes: Routes = [
         path: '',
         component: AppealsComponent
       },
+      {
+        path: 'new-appeal',
+        component: NewAppealComponent
+      }
     ]
   },
 ];

@@ -29,7 +29,7 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-    for (let i = 0; i < 10; i++){
+    for (let i = 0; i < 10; i++) {
       this.errors[i] = false;
     }
     let ok = true;

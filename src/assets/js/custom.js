@@ -11,10 +11,10 @@ $(document).ready(function(){
       $(".sidebar #nav").slideDown(350);
     }
     else{
-      $(".sidebar #nav").slideUp(350); 
+      $(".sidebar #nav").slideUp(350);
     }
   }); */
-  
+
    $(".has_sub > a").click(function(e){
     e.preventDefault();
     var menu_li = $(this).parent("li");
@@ -32,29 +32,29 @@ $(document).ready(function(){
     }
   });
 
-/* Old Code 
+/* Old Code
 
   $("#nav > li > a").on('click',function(e){
       if($(this).parent().hasClass("has_sub")) {
-       
+
 		  e.preventDefault();
 
 		  if(!$(this).hasClass("subdrop")) {
 			// hide any open menus and remove all other classes
 			$("#nav li ul").slideUp(350);
 			$("#nav li a").removeClass("subdrop");
-			
+
 			// open our new menu and add the open class
 			$(this).next("ul").slideDown(350);
 			$(this).addClass("subdrop");
 		  }
-		  
+
 		  else if($(this).hasClass("subdrop")) {
 			$(this).removeClass("subdrop");
 			$(this).next("ul").slideUp(350);
-		  } 
-      }   
-      
+		  }
+      }
+
   }); */
 });
 
@@ -67,7 +67,7 @@ $(document).ready(function(){
         $(".sidebar #nav").slideDown(350);
         $(this).addClass("open");
       }
-      
+
       else{
         $(".sidebar #nav").slideUp(350);
         $(this).removeClass("open");
@@ -89,28 +89,28 @@ $('.wclose').click(function(e){
 $('.wminimize').click(function(e){
 	e.preventDefault();
 	var $wcontent = $(this).parent().parent().next('.widget-content');
-	if($wcontent.is(':visible')) 
+	if($wcontent.is(':visible'))
 	{
 	  $(this).children('i').removeClass('fa fa-chevron-up');
 	  $(this).children('i').addClass('fa fa-chevron-down');
 	}
-	else 
+	else
 	{
 	  $(this).children('i').removeClass('fa fa-chevron-down');
 	  $(this).children('i').addClass('fa fa-chevron-up');
-	}            
+	}
 	$wcontent.toggle(500);
-}); 
+});
 
 /* Calendar */
 
 $(document).ready(function() {
-  
+
     var date = new Date();
     var d = date.getDate();
     var m = date.getMonth();
     var y = date.getFullYear();
-    
+
     $('#calendar').fullCalendar({
       header: {
         left: 'prev',
@@ -165,7 +165,7 @@ $(document).ready(function() {
         }
       ]
     });
-    
+
 });
 
 /* Progressbar animation */
@@ -212,7 +212,7 @@ $(function() {
 		orientation: "horizontal",
 		range: "min",
 		animate: true
-	});        
+	});
 
 	$("#master5, #master6").slider({
 		range: true,
@@ -225,7 +225,7 @@ $(function() {
 	});
 
 
-	// Vertical slider 
+	// Vertical slider
 	$( "#eq > span" ).each(function() {
 		// read initial values from markup and remove that
 		var value = parseInt( $( this ).text(), 10 );
@@ -259,7 +259,7 @@ $(function(){
 	  if ($(this).scrollTop()>300)
 	  {
 		$('.totop').fadeIn();
-	  } 
+	  }
 	  else
 	  {
 		$('.totop').fadeOut();
@@ -270,16 +270,6 @@ $(function(){
 	  e.preventDefault();
 	  $('body,html').animate({scrollTop: 0}, 500);
 	});
-
-});
-
-/* jQuery Notification */
-
-$(document).ready(function(){
-
-  setTimeout(function() {noty({text: '<strong>Howdy! Hope you are doing good...</strong>',layout:'topRight',type:'information',timeout:15000});}, 7000);
-
-  setTimeout(function() {noty({text: 'This is an all in one theme which includes Front End, Admin & E-Commerce. Dont miss it. Grab it now',layout:'topRight',type:'alert',timeout:13000});}, 9000);
 
 });
 
@@ -328,8 +318,8 @@ $(function() {
     });
 });
 
-/* On Off pllugin */  
-  
+/* On Off pllugin */
+
 $(document).ready(function() {
   $('.toggleBtn').onoff();
 });
@@ -369,3 +359,10 @@ $(document).ready(function() {
 	   "sPaginationType": "full_numbers"
 	});
 });
+$('#timeinput').on('change', function(){
+  console.log('changed');
+});
+function onchangetime() {
+  console.log('changed');
+
+}
