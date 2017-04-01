@@ -12,58 +12,60 @@
 
               <form class="form-horizontal">
                 <!-- Registration form starts -->
-                <!-- Name -->
+                <!-- FirstName -->
                 <div class="form-group">
-                  <label class="control-label col-lg-3" for="name">Name</label>
+                  <label class="control-label col-lg-3" for="firstname">First Name</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="name">
+                    <input type="text" class="form-control" id="firstname" name="firstname" [(ngModel)]="user.firstname" value="user.firstname">
+                  </div>
+                </div>
+                <!-- LastName -->
+                <div class="form-group">
+                  <label class="control-label col-lg-3" for="lastname">Last Name</label>
+                  <div class="col-lg-9">
+                    <input type="text" class="form-control" id="lastname" name="lastname" [(ngModel)]="user.lastname" value="user.lastname">
                   </div>
                 </div>
                 <!-- Email -->
                 <div class="form-group">
                   <label class="control-label col-lg-3" for="email">Email</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="email">
+                    <input type="text" class="form-control" id="email" name="email" [(ngModel)]="user.email" value="user.email">
                   </div>
                 </div>
-                <!-- Select box -->
+                <!-- Phone -->
                 <div class="form-group">
-                  <label class="control-label col-lg-3">Drop Down</label>
-                  <div class="col-lg-4">
-                    <select class="form-control">
-                      <option>&nbsp;</option>
-                      <option>1</option>
-                      <option>2</option>
-                      <option>3</option>
-                      <option>4</option>
-                      <option>5</option>
-                    </select>
-                  </div>
-                </div>
-                <!-- Username -->
-                <div class="form-group">
-                  <label class="control-label col-lg-3" for="username">Username</label>
+                  <label class="control-label col-lg-3" for="phone">Phone</label>
                   <div class="col-lg-9">
-                    <input type="text" class="form-control" id="username">
+                    <input type="text" class="form-control" id="phone" name="phone" [(ngModel)]="user.phone" value="user.phone">
+                  </div>
+                </div>
+                <!-- NUID -->
+                <div class="form-group">
+                  <label class="control-label col-lg-3" for="nuid">NU ID</label>
+                  <div class="col-lg-9">
+                    <input type="text" class="form-control" id="nuid" name="nuid" [(ngModel)]="user.nuid" value="user.nuid">
                   </div>
                 </div>
                 <!-- Password -->
                 <div class="form-group">
-                  <label class="control-label col-lg-3" for="email">Password</label>
+                  <label class="control-label col-lg-3" for="password1">Password</label>
                   <div class="col-lg-9">
-                    <input type="password" class="form-control" id="password">
+                    <input type="password" class="form-control" id="password1" name="password1" [(ngModel)]="user.password" value="user.password">
+                  </div>
+                </div>
+                <!-- Repeat Password -->
+                <div class="form-group">
+                  <label class="control-label col-lg-3" for="password2">Password</label>
+                  <div class="col-lg-9">
+                    <input type="password" class="form-control" id="password2" name="password2" [(ngModel)]="password" value="password">
                   </div>
                 </div>
                 <!-- Accept box and button s-->
                 <div class="form-group">
                   <div class="col-lg-9 col-lg-offset-3">
-                    <div class="checkbox">
-                      <label>
-                        <input type="checkbox"> Accept Terms &amp; Conditions
-                      </label>
-                    </div>
                     <br />
-                    <button type="submit" class="btn btn-sm btn-info">Register</button>
+                    <button type="button" class="btn btn-sm btn-info" (click)="register()">Register</button>
                     <button type="reset" class="btn btn-sm btn-default">Reset</button>
                   </div>
                 </div>

@@ -7,7 +7,7 @@ import { MainModule } from "./modules/main/main.module";
 import { AppComponent } from './app.component';
 import { LoginComponent } from './components/login/login.component';
 import { AuthGuard } from "./_guards/auth.guard";
-import { routing } from "./app.routing";
+import {routing} from "./app.routing";
 import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
