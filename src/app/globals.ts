@@ -7,7 +7,7 @@ export class Noty {
       Notification.requestPermission();
     } else {
        new Notification(title, {
-        icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+        icon: '../assets/img/noty_icon.png',
         body: text,
       }).onclick = function () {
         if (!(!link)) {
